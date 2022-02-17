@@ -19,7 +19,6 @@ document.getElementById("save-btn").addEventListener("click", function () {
   const balanceText = document.getElementById("calculate-balance").innerText;
   const balanceAmount = parseFloat(balanceText);
   const calculateSaving = savings(totalIncome, savingPercent);
-  console.log(calculateSaving);
   if (balanceAmount > calculateSaving) {
     document.getElementById("saving-amount").innerText = calculateSaving;
     remainingBalance();
@@ -28,6 +27,7 @@ document.getElementById("save-btn").addEventListener("click", function () {
   }
 });
 
+// calculate the total expenses
 function calculateExpense() {
   const foodText = document.getElementById("food-field").value;
   const rentText = document.getElementById("rent-field").value;
@@ -39,14 +39,15 @@ function calculateExpense() {
   return totalExpense;
 }
 
+// calculate the remaining balance
 function remainingBalance() {
   const balanceText = document.getElementById("calculate-balance").innerText;
   const savingText = document.getElementById("saving-amount").innerText;
-  console.log(balanceText, savingText);
   document.getElementById("remaining-field").innerText =
     parseFloat(balanceText) - parseFloat(savingText);
 }
 
+// calculate the balance amount
 function balance(income, expense) {
   if (income > expense) {
     document.getElementById("notify-fail").style.display = "none";
@@ -56,12 +57,13 @@ function balance(income, expense) {
     document.getElementById("notify-fail").style.display = "block";
   }
 }
-
+// calculate the savings amount
 function savings(amount, percent) {
   const savings = (amount * percent) / 100;
   return savings;
 }
 
+// input field only allow number
 function isNumber(evt) {
   evt = evt ? evt : window.event;
   var charCode = evt.which ? evt.which : evt.keyCode;
@@ -71,6 +73,7 @@ function isNumber(evt) {
   return true;
 }
 
+// check the empty field
 function required() {
   if (document.getElementById("income-field").value.length == 0) {
     alert("Income field is empty");
