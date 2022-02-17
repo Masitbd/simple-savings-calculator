@@ -1,20 +1,32 @@
 document.getElementById("calculate-btn").addEventListener("click", function () {
   const totalExpenses = calculateExpense();
-  document.getElementById("calculate-expense").innerText = totalExpenses;
+  document.getElementById("calculate-expense").innerText = isNaN(totalExpenses)
+    ? 0
+    : totalExpenses;
   // calculateExpense.innerText = totalExpenses;
   const totalIncome = document.getElementById("income-field").value;
   const calculateBalance = balance(totalIncome, totalExpenses);
   //console.log(remainingBalance);
-  document.getElementById("calculate-balance").innerText = calculateBalance;
+  document.getElementById("calculate-balance").innerText = isNaN(
+    calculateBalance
+  )
+    ? 0
+    : calculateBalance;
 });
 
 document.getElementById("save-btn").addEventListener("click", function () {
   const totalIncome = document.getElementById("income-field").value;
   const savingPercent = document.getElementById("saving-field").value;
+  const balanceText = document.getElementById("calculate-balance").innerText;
+  const balanceAmount = parseFloat(balanceText);
   const calculateSaving = savings(totalIncome, savingPercent);
   console.log(calculateSaving);
-  document.getElementById("saving-amount").innerText = calculateSaving;
-  remainingBalance();
+  if (balanceAmount > calculateSaving) {
+    document.getElementById("saving-amount").innerText = calculateSaving;
+    remainingBalance();
+  } else {
+    alert("Balance must be greater than saving amount");
+  }
 });
 
 function calculateExpense() {
