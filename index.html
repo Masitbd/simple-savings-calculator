@@ -26,30 +26,30 @@
       <div class="col-lg-6 col-sm-12 d-flex flex-column justify-content-center align-items-center">
         <h4>Income</h4>
         <label>Income:
-          <input type='text' name='income' id='income-field'>
+          <input type='text' name='income' id='income-field' onkeypress="return isNumber(event)">
         </label>
         <h5>Expensess</h5>
         <label>Food:
-          <input type='text' name='food' id='food-field'>
+          <input type='text' name='food' id='food-field' onkeypress="return isNumber(event)">
         </label> <br>
         <label>Rent:
-          <input type='text' name='rent' id='rent-field'>
+          <input type='text' name='rent' id='rent-field' onkeypress="return isNumber(event)">
         </label><br>
         <label>Others:
-          <input type='text' name='others' id='others-field'>
+          <input type='text' name='others' id='others-field' onkeypress="return isNumber(event)">
         </label>
         <button id="calculate-btn" class="btn btn-primary my-2 px-4">Calculate</button>
         <h5>Total Expensess: <span id="calculate-expense">0</span></h5>
-        <h5>Balance: <span>0</span></h5>
+        <h5>Balance: <span id="calculate-balance">0</span></h5>
         <div class="ms-auto">
           <label class="w-auto">Save:
-            <input class="w-25" type='text' name='others' id='theinput'>
+            <input class="w-25" type='text' name='saving' id='saving-field' onkeypress="return isNumber(event)">
 
             <span>%</span>
-            <span><button class="btn btn-primary px-4">Save</button></span>
+            <span><button id="save-btn" class="btn btn-primary px-4">Save</button></span>
           </label>
-          <h5>Saving Amount: <span>0</span></h5>
-          <h5>Remaining Balance: <span>0</span></h5>
+          <h5>Saving Amount: <span id="saving-amount">0</span></h5>
+          <h5>Remaining Balance: <span id="remaining-field">0</span></h5>
         </div>
       </div>
     </div>
