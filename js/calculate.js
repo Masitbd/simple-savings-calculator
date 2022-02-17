@@ -4,10 +4,8 @@ document.getElementById("calculate-btn").addEventListener("click", function () {
   document.getElementById("calculate-expense").innerText = isNaN(totalExpenses)
     ? 0
     : totalExpenses;
-  // calculateExpense.innerText = totalExpenses;
   const totalIncome = document.getElementById("income-field").value;
   const calculateBalance = balance(totalIncome, totalExpenses);
-  //console.log(remainingBalance);
   document.getElementById("calculate-balance").innerText = isNaN(
     calculateBalance
   )
@@ -55,7 +53,6 @@ function balance(income, expense) {
     const remaining = income - expense;
     return remaining;
   } else if (!income.length == 0 && !isNaN(expense)) {
-    alert("income must greater than expense");
     document.getElementById("notify-fail").style.display = "block";
   }
 }

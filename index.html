@@ -14,18 +14,18 @@
 <body>
   <!-- header section -->
   <header class="container">
-    <h1 class="my-5 text-center text-success fw-bold">Simple Savings Calculator</h1>
+    <h1 class="my-5 text-center text-success fw-bold pt-5">Simple Savings Calculator</h1>
   </header>
   <!-- main section -->
-  <main class="container">
-    <div class="row">
-      <div class="col-lg-6 col-sm-12">
-        <img class="img-fluid rounded"
+  <main class="container px-4">
+    <div class="row ">
+      <div class="col-lg-6 col-sm-12 ">
+        <img class="rounded"
           src="https://img.freepik.com/free-photo/front-view-two-stacks-coins-with-jar-plants_23-2148803919.jpg?w=996"
           alt="">
       </div>
-      <div class="col-lg-6 col-sm-12 d-flex flex-column justify-content-center align-items-center">
-        <h4 class="text-primary fw-bold">Income</h4>
+      <div class="col-lg-6 col-sm-12 d-flex flex-column justify-content-center align-items-center ">
+        <h4 class="text-primary fw-bold pt-2">Income</h4>
         <label>Income:
           <input type='text' name='income' id='income-field' onkeypress="return isNumber(event)">
         </label>
@@ -49,7 +49,7 @@
             <span>%</span>
             <span><button id="save-btn" class="btn btn-primary px-4">Save</button></span>
           </label>
-          <h5>Saving Amount: <span id="saving-amount">0</span></h5>
+          <h5 class="pt-2">Saving Amount: <span id="saving-amount">0</span></h5>
           <h5>Remaining Balance: <span id="remaining-field">0</span></h5>
         </div>
         <div class="notify-section">
