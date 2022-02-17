@@ -1,4 +1,5 @@
 document.getElementById("calculate-btn").addEventListener("click", function () {
+  required();
   const totalExpenses = calculateExpense();
   document.getElementById("calculate-expense").innerText = isNaN(totalExpenses)
     ? 0
@@ -34,7 +35,9 @@ function calculateExpense() {
   const rentText = document.getElementById("rent-field").value;
   const othersText = document.getElementById("others-field").value;
   const totalExpense =
-    parseFloat(foodText) + parseFloat(rentText) + parseFloat(othersText);
+    parseFloat(isNaN(foodText) ? 0 : foodText) +
+    parseFloat(isNaN(rentText) ? 0 : rentText) +
+    parseFloat(isNaN(othersText) ? 0 : othersText);
   return totalExpense;
 }
 
@@ -47,8 +50,14 @@ function remainingBalance() {
 }
 
 function balance(income, expense) {
-  const remaining = income - expense;
-  return remaining;
+  if (income > expense) {
+    document.getElementById("notify-fail").style.display = "none";
+    const remaining = income - expense;
+    return remaining;
+  } else if (!income.length == 0 && !isNaN(expense)) {
+    alert("income must greater than expense");
+    document.getElementById("notify-fail").style.display = "block";
+  }
 }
 
 function savings(amount, percent) {
@@ -63,4 +72,16 @@ function isNumber(evt) {
     return false;
   }
   return true;
+}
+
+function required() {
+  if (document.getElementById("income-field").value.length == 0) {
+    alert("Income field is empty");
+  } else if (document.getElementById("food-field").value.length == 0) {
+    document.getElementById("food-field").value = 0;
+  } else if (document.getElementById("rent-field").value.length == 0) {
+    document.getElementById("rent-field").value = 0;
+  } else if (document.getElementById("others-field").value.length == 0) {
+    document.getElementById("others-field").value = 0;
+  }
 }
